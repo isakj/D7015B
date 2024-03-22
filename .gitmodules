@@ -1,0 +1,3 @@
+[submodule "assignment3/stopwords-sv"]
+	path = assignment3/stopwords-sv
+	url = https://github.com/stopwords-iso/stopwords-sv
