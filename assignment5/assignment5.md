@@ -43,7 +43,8 @@ before clustering.
 To start with, a histogram with the point frequency by height ($z$) was
 created, each bin being 1 dm (0.1 m).
 
-![](./task1-histogram.png)\
+![](./task1-histogram.png)
+
 *Figure 1. Histogram, number of points per height interval (bin size=0.1 m). 
 Source: Dataset 1.*
 
@@ -112,7 +113,8 @@ clusters, we run DBSCAN with a lot of different values of $\epsilon$.
 This is normally not be practical as it consumes a lot of CPU,
 but it helps understanding the characteristics.
 
-![](./task2-epsilon-clusters.png)\
+![](./task2-epsilon-clusters.png)
+
 *Figure 2. Number of clusters as a function of $\epsilon$.
 Source: Dataset 1.*
 
@@ -126,7 +128,8 @@ Luckily, there is already a library for Python which computes the nearest neighb
 in a more efficient way. 
 Even better, it produced the same result as my for loops.
 
-![](./task2-nearest-neighbour.png)\
+![](./task2-nearest-neighbour.png)
+
 *Figure 3. Histogram of distribution of distance to nearest neighbor. Logarithmic bin width.
 Source: Dataset 1.*
 
@@ -143,7 +146,8 @@ I was not able to get the polynomial fitting to work very well, probably
 because the knee is very sharp. When using piece-wise approximation,
 the kneed library found $\epsilon \approx 0.911$ for dataset 1, which is what is used below.
 
-![](./task2-kneed1.png) ![](./task2-kneed2.png)\
+![](./task2-kneed1.png) ![](./task2-kneed2.png)
+
 *Figure 4 and Figure 5. Knee analysis based on 30th closest neighbor. Source: Dataset 1.*
 
 Note that this value of $\epsilon$ corresponds to the knee around $10^0$ in Figure 3.
@@ -166,7 +170,8 @@ The idea is that this is the catenary, and we want to find the size of this.
 Given the clustering, this is trivial. We loop over the cluster labels and calculate the size
 of the bounding box for that cluster. Then we sort the sizes and we get the largest one.
 
-![](./task3-size.png)\
+![](./task3-size.png)
+
 *Figure 6. Cluster projected on ground ($z=0$), with bounding box for the largest cluster. $\epsilon \approx 0.911$.
 Source: Dataset 1.*
 
@@ -184,13 +189,15 @@ detected catenary.
 An example is in the figure below, where part of the catenary is not part
 of a contiguous cluster.
 
-![](./task3-size-eps0.7.png)\
+![](./task3-size-eps0.7.png)
+
 *Figure 7. Cluster projected on ground ($z=0$), with bounding box for the largest cluster. $\epsilon=0.7$.
 Source: Dataset 1.*
 
 The result of the analysis of the bounding box with regards to $\epsilon$ is shown in Figure XY.
 
-![](./task3-epsilon-range.png)\
+![](./task3-epsilon-range.png)
+
 *Figure 8. Cluster projected on ground the largest cluster, and the part of points withing the bounding box
 corresponding to that cluster.
 Source: Dataset 1.*
@@ -210,29 +217,34 @@ $(26.50, 62.14) - (80.02, 159.96)$.
 
 ### Dataset 2
 
-![](./task1-histogram-dataset2.png)\
+![](./task1-histogram-dataset2.png)
+
 *Figure 9. Histogram, number of points per height interval (bin size=0.1 m). 
 Source: Dataset 2.*
 
 Ground level was also here found to be 62.15 m.
 
-![](./task2-epsilon-clusters-dataset2.png)\
+![](./task2-epsilon-clusters-dataset2.png)
+
 *Figure 10. Number of clusters as a function of $\epsilon$.
 Source: Dataset 2.*
 
-![](./task2-kneed1-dataset2.png) ![](./task2-kneed2-dataset2.png)\
+![](./task2-kneed1-dataset2.png) ![](./task2-kneed2-dataset2.png)
+
 *Figure 11 and Figure 12. Knee analysis based on 30th closest neighbor. Source: Dataset 2.*
 
 Best $\epsilon$ was estimated to be 1.004.
 
-![](./task3-size-dataset2.png)\
+![](./task3-size-dataset2.png)
+
 *Figure 13. Cluster projected on ground ($z=0$), with bounding box for the largest cluster. $\epsilon \approx 1.004$.
 Source: Dataset 2.*
 
 Comment. Apparently $\epsilon$ is a little bit too small to get the correct value of the bounding box,
 as the lower leftmost part is not included in the box.
 
-![](./task3-epsilon-range-dataset2.png)\
+![](./task3-epsilon-range-dataset2.png)
+
 *Figure 14. Cluster projected on ground the largest cluster, and the part of points withing the bounding box
 corresponding to that cluster.
 Source: Dataset 2.*
